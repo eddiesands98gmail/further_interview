@@ -5,7 +5,7 @@ function Welcome(props) {
     <div className="App">
       <header className="App-header">
         <p>Welcome!</p>
-        <Button href="/further_interview/form">Start</Button>
+        <Button href="/further_interview/form/">Start</Button>
       </header>
     </div>
   );

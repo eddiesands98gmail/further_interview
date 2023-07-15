@@ -11,11 +11,11 @@ const router = createBrowserRouter([
     element: <Welcome></Welcome>,
   },
   {
-    path: "/further_interview/form",
+    path: "/further_interview/form/",
     element: <IntakeForm></IntakeForm>,
   },
   {
-    path: "/further_interview/thankyou",
+    path: "/further_interview/thankyou/",
     element: <ThankYou></ThankYou>,
   },
 ]);
