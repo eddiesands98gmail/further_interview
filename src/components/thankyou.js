@@ -5,7 +5,7 @@ function ThankYou(props) {
     <div className="App">
       <header className="App-header2">
         <p>Thank you! We will be in touch soon!</p>
-        <Button href="/form">Try Again</Button>
+        <Button href="/further_interview/">Try Again</Button>
       </header>
     </div>
   );

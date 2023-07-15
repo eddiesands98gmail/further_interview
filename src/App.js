@@ -7,15 +7,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/further_interview/",
     element: <Welcome></Welcome>,
   },
   {
-    path: "/form",
+    path: "/further_interview/form",
     element: <IntakeForm></IntakeForm>,
   },
   {
-    path: "/thankyou",
+    path: "/further_interview/thankyou",
     element: <ThankYou></ThankYou>,
   },
 ]);
