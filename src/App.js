@@ -5,24 +5,26 @@ import ThankYou from "./components/thankyou";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, HashRouter } from "react-router-dom";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/further_interview/",
-//     element: <Welcome></Welcome>,
-//   },
-//   {
-//     path: "/further_interview/form/",
-//     element: <IntakeForm></IntakeForm>,
-//   },
-//   {
-//     path: "/further_interview/thankyou/",
-//     element: <ThankYou></ThankYou>,
-//   },
-// ]);
-
 function App() {
-  const handleNextScreen = () => {
-    return 0;
+  // const navigate = useNavigate();
+  const submitForm = async (e, payload) => {
+    e.preventDefault();
+    console.log(payload);
+    await fetch("https://hooks.zapier.com/hooks/catch/15807240/3msrn64/", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(JSON.stringify(response));
+        window.location.href = "/#/thankyou";
+      })
+      .catch((error) => {
+        window.location.href = "/#/error";
+      });
   };
 
   return (
@@ -34,7 +36,11 @@ function App() {
         />
         <Route exact path="/" element={<Welcome />} />
         <Route exact path="/thankyou" element={<ThankYou />} />
-        <Route exact path="/form" element={<IntakeForm />} />
+        <Route
+          exact
+          path="/form"
+          element={<IntakeForm handleFormSubmit={submitForm} />}
+        />
       </Routes>
     </HashRouter>
   );
