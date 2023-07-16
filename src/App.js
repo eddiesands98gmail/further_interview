@@ -20,10 +20,10 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log(JSON.stringify(response));
-        window.location.href = "/#/thankyou";
+        window.location.href = "/further_interview/#/thankyou";
       })
       .catch((error) => {
-        window.location.href = "/#/error";
+        window.location.href = "/further_interview/#/error";
       });
   };
 
