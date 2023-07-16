@@ -20,9 +20,11 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log(JSON.stringify(response));
+        e.returnValue = true;
         window.location.href = "/further_interview/#/thankyou";
       })
       .catch((error) => {
+        e.returnValue = true;
         window.location.href = "/further_interview/#/error";
       });
   };

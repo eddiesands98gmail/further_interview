@@ -17,7 +17,20 @@ function IntakeForm(props) {
         style={{ height: "1000px" }}
       >
         {/* name, email, timeline, service level (make some up), budget and phone */}
-        <Form style={{ width: "500px" }}>
+        <Form
+          style={{ width: "500px" }}
+          onSubmit={(e) => {
+            let payload = {
+              email: email,
+              name: name,
+              timeline: timeline,
+              service_level: serviceLevel,
+              budget: Number(budget.replaceAll(",", "")),
+              phone: phone,
+            };
+            props.handleFormSubmit(e, payload);
+          }}
+        >
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -91,21 +104,7 @@ function IntakeForm(props) {
             />
           </Form.Group>
 
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={(e) => {
-              let payload = {
-                email: email,
-                name: name,
-                timeline: timeline,
-                service_level: serviceLevel,
-                budget: Number(budget.replaceAll(",", "")),
-                phone: phone,
-              };
-              props.handleFormSubmit(e, payload);
-            }}
-          >
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
